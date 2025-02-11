@@ -22,5 +22,14 @@ const { Content } = await render(entry)
     <p>Date de naissance : {formatDate(entry.data.dateNaissance)}</p>
     {entry.data.dateDeces && <p>Date de décès : {formatDate(entry.data.dateDeces)}</p>}
     <p>{entry.data.lieu_naissance}</p>
-    <Content />
+    <!-- <ul>
+        {entry.data.profession && entry.data.profession.map((pro) => (
+            <li>{pro}</li>
+        ))}
+    </ul> -->
+    {entry.data.profession && <>Profession{entry.data.profession.length > 1 && <>s</>} :  {entry.data.profession.join(", ")}</p>}
+
+    <div class="prose">
+        <Content />
+    </div>
 </Layout>
