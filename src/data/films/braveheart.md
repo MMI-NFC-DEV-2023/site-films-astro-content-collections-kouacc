@@ -3,6 +3,7 @@ titre: "Braveheart"
 date_sortie: 1995-05-24
 langue: "Anglais"
 duree: 178
+realisateur: "mel-gibson"
 ---
 
 # Braveheart

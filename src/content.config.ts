@@ -1,4 +1,4 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, reference, z } from "astro:content";
 import { glob } from 'astro/loaders'
 
 const films = defineCollection({
@@ -8,6 +8,7 @@ const films = defineCollection({
         date_sortie: z.date(),
         langue: z.string(),
         duree: z.number(),
+        realisateur: reference('personnes').optional(),
     })
 })
 

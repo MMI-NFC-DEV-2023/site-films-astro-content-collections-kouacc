@@ -19,10 +19,10 @@ const { Content } = await render(entry)
 ---
 
 <Layout pageTitle={entry.data.titre}>
-    <h1>{entry.data.titre}</h1>
+    <h1>Titre : {entry.data.titre}</h1>
     <p>Date de sortie : {formatDate(entry.data.date_sortie)}</p>
-    <p>{entry.data.langue}</p>
-    <p>{entry.data.duree}</p>
+    <p>Langue : {entry.data.langue}</p>
+    <p>Durée : {entry.data.duree} minutes</p>
 
     <div class="prose">
         <Content />
