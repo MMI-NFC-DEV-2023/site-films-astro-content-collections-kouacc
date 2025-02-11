@@ -1,3 +1,13 @@
+---
+import "./src/styles/global.css"
+
+interface Props {
+	pageTitle: string;
+}
+
+const { pageTitle } = Astro.props
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,18 +15,15 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
+		<nav>
+			<ul>
+				<li><a href="/">Accueil</a></li>
+				<li><a href="/personnes">Personnes</a></li>
+			</ul>
+		</nav>
 		<slot />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
