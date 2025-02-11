@@ -5,6 +5,11 @@ langue: "Anglais"
 duree: 178
 realisateur: "mel-gibson"
 scenaristes: ["randall-wallace"]
+roles: [
+  { acteur: "mel-gibson", role: "William Wallace" },
+  { acteur: "sophie-marceau", role: "Princess Isabelle" },
+  { acteur: "patrick-mcgoohan", role: "King Edward I" }
+]
 ---
 
 # Braveheart

@@ -10,6 +10,7 @@ const films = defineCollection({
         duree: z.number(),
         realisateur: reference('personnes').optional(),
         scenaristes: z.array(reference("personnes")).optional(),
+        roles: z.array(z.object({ acteur: reference("personnes"), role: z.string()}))
     })
 })
 
