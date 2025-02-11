@@ -1,0 +1,30 @@
+---
+import Layout from '@layouts/Layout.astro';
+import { render } from 'astro:content';
+import { getCollection } from 'astro:content';
+import { formatDate } from '../../utils/date_format'
+
+export async function getStaticPaths() {
+    const filmsEntries = await getCollection('films')
+    return filmsEntries.map(entry => ({
+        params: { slug: entry.id },
+        props: { entry }
+    }))
+}
+
+const { entry } = Astro.props
+const { Content } = await render(entry)
+
+
+---
+
+<Layout pageTitle={entry.data.titre}>
+    <h1>{entry.data.titre}</h1>
+    <p>Date de sortie : {formatDate(entry.data.date_sortie)}</p>
+    <p>{entry.data.langue}</p>
+    <p>{entry.data.duree}</p>
+
+    <div class="prose">
+        <Content />
+    </div>
+</Layout>

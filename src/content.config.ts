@@ -6,7 +6,6 @@ const films = defineCollection({
     schema: z.object({
         titre: z.string(),
         date_sortie: z.date(),
-        synopsis: z.string(),
         langue: z.string(),
         duree: z.number(),
     })

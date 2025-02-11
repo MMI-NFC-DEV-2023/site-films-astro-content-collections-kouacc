@@ -1,5 +1,5 @@
 ---
-import "./src/styles/global.css"
+import "@styles/global.css"
 
 interface Props {
 	pageTitle: string;
@@ -22,6 +22,7 @@ const { pageTitle } = Astro.props
 			<ul>
 				<li><a href="/">Accueil</a></li>
 				<li><a href="/personnes">Personnes</a></li>
+				<li><a href="/films">Films</a></li>
 			</ul>
 		</nav>
 		<slot />
