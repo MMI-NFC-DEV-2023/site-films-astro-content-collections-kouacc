@@ -1,0 +1,26 @@
+---
+import Layout from '@layouts/Layout.astro';
+import { render } from 'astro:content';
+import { getCollection } from 'astro:content';
+import { formatDate } from '../../utils/date_format'
+
+export async function getStaticPaths() {
+    const personnesEntries = await getCollection('personnes')
+    return personnesEntries.map(entry => ({
+        params: { slug: entry.id },
+        props: { entry }
+    }))
+}
+
+const { entry } = Astro.props
+const { Content } = await render(entry)
+---
+
+<Layout pageTitle={entry.data.nom}>
+    <h1>{entry.data.nom}</h1>
+    <p>Nationalité : {entry.data.nationalite}</p>
+    <p>Date de naissance : {formatDate(entry.data.dateNaissance)}</p>
+    {entry.data.dateDeces && <p>Date de décès : {formatDate(entry.data.dateDeces)}</p>}
+    <p>{entry.data.lieu_naissance}</p>
+    <Content />
+</Layout>
