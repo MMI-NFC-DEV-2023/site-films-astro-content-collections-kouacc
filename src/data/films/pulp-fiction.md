@@ -4,6 +4,7 @@ date_sortie: 1994-10-14
 langue: "Anglais"
 duree: 154
 realisateur: "quentin-tarantino"
+scenaristes: ["quentin-tarantino"]
 ---
 
 # Pulp Fiction

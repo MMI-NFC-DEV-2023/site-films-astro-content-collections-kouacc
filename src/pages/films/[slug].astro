@@ -3,6 +3,8 @@ import Layout from '@layouts/Layout.astro';
 import { render } from 'astro:content';
 import { getCollection } from 'astro:content';
 import { formatDate } from '../../utils/date_format'
+import { getEntry } from 'astro:content';
+import { getEntries } from 'astro:content';
 
 export async function getStaticPaths() {
     const filmsEntries = await getCollection('films')
@@ -15,6 +17,9 @@ export async function getStaticPaths() {
 const { entry } = Astro.props
 const { Content } = await render(entry)
 
+const realisateur = entry.data.realisateur && (await getEntry(entry.data.realisateur))
+const scenaristes = entry.data.scenaristes && (await getEntries(entry.data.scenaristes))
+
 
 ---
 
@@ -23,6 +28,8 @@ const { Content } = await render(entry)
     <p>Date de sortie : {formatDate(entry.data.date_sortie)}</p>
     <p>Langue : {entry.data.langue}</p>
     <p>Durée : {entry.data.duree} minutes</p>
+    {realisateur && <p>Réalisateur : {realisateur.data.nom}</p>}
+    {scenaristes && <p>Scénariste : {scenaristes.map(s => s.data.nom)}</p>}
 
     <div class="prose">
         <Content />
